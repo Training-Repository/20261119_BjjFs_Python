@@ -22,3 +22,17 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!```
 ```
+
+## References
+* [Exception Hierarchy](https://docs.python.org/3/builtins/exceptions.html#exception-hierarchy)
+
+## Reading list
+* Functions
+    * Lambdas
+    * Map, Filter, Reduce
+
+## Contact
+* Ramakant Debata
+* ramakant.s.debata@gmail.com
+* +91-9923516767 (WhatsApp)
+* https://www.linkedin.com/in/ramakant-debata/
