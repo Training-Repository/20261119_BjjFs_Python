@@ -17,6 +17,7 @@ def main():
         print( f"An error occurred: {e!r}")
     except Exception as e:
         print(f"An unexpected error occurred: {e!r}")
+        raise
     else:
         print("No exceptions occurred during division.")
     finally:
@@ -24,3 +25,5 @@ def main():
 
 
 main()
+
+# Stack Unwinding

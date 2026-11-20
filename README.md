@@ -24,12 +24,17 @@ Namespaces are one honking great idea -- let's do more of those!```
 ```
 
 ## References
+* [PEP Index](https://peps.python.org/)
+* [PEP-08: Style guide for Python](https://peps.python.org/pep-0008/)
+* [PEP-20: Zen of Python](https://peps.python.org/pep-0020/)
 * [Exception Hierarchy](https://docs.python.org/3/builtins/exceptions.html#exception-hierarchy)
 
 ## Reading list
 * Functions
     * Lambdas
     * Map, Filter, Reduce
+    * Decorators
+    * Currying
 
 ## Contact
 * Ramakant Debata
