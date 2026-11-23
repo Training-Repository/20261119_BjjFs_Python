@@ -1,22 +1,68 @@
-# -----------------------------------------------Stage 1
+"""Collections library: model submission for the SimpleList assignment (Stages 1-4)."""
+
+
+# ---------------------------------------------------------------- Stage 1
 class SimpleList:
-    pass
+    def __init__(self, items):
+        print("In SimpleList ctor")
+        self.items = list(items)
 
-# -----------------------------------------------Stage 2
+    def add(self, item):
+        self.items.append(item)
+
+    def __getitem__(self, index):
+        return self.items[index]
+
+    def sort(self):
+        self.items.sort()
+
+    def __len__(self):
+        return len(self.items)
+
+    def __repr__(self):
+        return f"{type(self).__name__}({self.items!r})"
+
+
+# ---------------------------------------------------------------- Stage 2
 class SortedList(SimpleList):
-    pass
+    def __init__(self, items):
+        print("In SortedList ctor")
+        super().__init__(items)
+        self.sort()
 
-# -----------------------------------------------Stage 3
+    def add(self, item):
+        super().add(item)
+        self.sort()
+
+
+# ---------------------------------------------------------------- Stage 3
 class IntList(SimpleList):
-    pass
+    def __init__(self, items=()):
+        print("In IntList ctor")
+        for x in items:
+            self._validate(x)
+        super().__init__(items)
 
-# -----------------------------------------------Stage 4
+    @staticmethod
+    def _validate(x):
+        if not isinstance(x, int):
+            raise TypeError('IntList only supports integer values.')
+
+    def add(self, item):
+        self._validate(item)
+        super().add(item)
+
+
+# ---------------------------------------------------------------- Stage 4
 class SortedIntList(IntList, SortedList):
-    pass
+    def __init__(self, items=()):
+        print("In SortedIntList ctor")
+        super().__init__(items)
 
 
-# -----------------------------------------------Stage tests
 
+
+# ---------------------------------------------------------------- Stage tests
 def stage1_tests():
     refunds = [4500, 1200, 9800]
     sl = SimpleList(refunds)
@@ -90,3 +136,26 @@ if __name__ == '__main__':
     stage3_tests()
     print([c.__name__ for c in SortedIntList.__mro__])
     main()
+
+    # IntList()
+
+    # obj = SortedIntList((45, 21, 3))
+    # print(f"{obj.__class__.__bases__ = }")
+    # print(f"{obj.__class__.__mro__ = }")
+
+
+
+# ANSWERS
+# R1: __getitem__. Without __iter__, Python iterates by calling __getitem__(0), (1), ... until
+#     IndexError; `in` falls back to that same iteration.
+# R2: The error comes from list.sort() comparing str with int; it names neither the collection
+#     nor the bad value, and appears only at sort time, far from where the data came in.
+# R3: The check needs no instance data, so it is static. Calling it as self._validate lets a
+#     subclass override the rule; a module-level function could not be overridden per class.
+# R4: IntList.__init__ (validate) -> SortedList.__init__ -> SimpleList.__init__ (copy), then
+#     SortedList sorts. super() follows the MRO of SortedIntList, where IntList is followed by SortedList.
+# R5: IntList.add (validate) -> SortedList.add -> SimpleList.add (append), then SortedList.add sorts.
+# R6: "<class 'TypeError'> '<' not supported between instances of 'str' and 'int'": super() reaches
+#     SortedList, which sorts the mixed list before IntList validates. Validate before delegating.
+# R7: MRO becomes SortedIntList, SortedList, IntList, SimpleList, object; output is unchanged, because
+#     IntList works before super() and SortedList works after it, whichever is listed first.
