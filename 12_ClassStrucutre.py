@@ -59,9 +59,18 @@ class Car:
     def GenSerial():
         return randint(1000, 9999)
 
+class GearedCar(Car):
+    def __init__(self, make, model, year, colour, gears):
+        self.gears = gears
+        super().__init__(make, model, year, colour)
+
+    def __str__(self):
+        return super().__str__() + f" [{self.gears}]"
+
+    def __repr__(self):
+        return super().__repr__() + f" [{self.gears}]"
     
-
-
+    
 #################################################
 
 
@@ -114,7 +123,13 @@ def Test3():
     # print(f"{c1.getColour() = }")
     print(f"{c1.colour = }")
 
+def Test4():
+    gc1 = GearedCar("Honda", "Accord", 2026, "White", 5)
+    gc2 = GearedCar("Mazda", "Miata", 2025, "Yellow", 6)
+
+    print(gc1)
+    print(repr(gc2))
 
 
 if __name__ == '__main__':
-    Test3()
+    Test4()
