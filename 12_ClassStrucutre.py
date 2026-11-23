@@ -43,6 +43,13 @@ class Car:
             self.speed -= 5
         else:
             self.speed = 0
+    @property
+    def colour(self):
+        return self.__colour
+
+    @colour.setter
+    def colour(self, colour):
+        self.__colour = colour
 
     @classmethod
     def GetCount(cls):
@@ -51,6 +58,8 @@ class Car:
     @staticmethod
     def GenSerial():
         return randint(1000, 9999)
+
+    
 
 
 #################################################
@@ -84,8 +93,28 @@ def Test2():
 
     print(dir(c2))
 
+def Test3():
+    c1 = Car("Honda", "Accord", 2026, "White")
+    c2 = Car("Mazda", "Miata", 2025, "Yellow")
+    c1.start()
+    c1.accelerate()
+    c1.accelerate()
+    c1.accelerate()
+    print(f"{c1.speed = }")
+
+    # retrieve colour
+    # print(f"{c1.getColour() = }")
+    print(f"{c1.colour = }")
+
+    # change the colout
+    # c1.setColour("Red")
+    c1.colour = "Red"
+
+    # retrieve the colour
+    # print(f"{c1.getColour() = }")
+    print(f"{c1.colour = }")
+
+
+
 if __name__ == '__main__':
-    # Test2()
-    lan = "BFLPUN2026000731"
-    print(lan[:3], lan[-3:], lan[3:6].lower(), lan[100:] == "")
-    print(f"{lan[100:] = }")
+    Test3()

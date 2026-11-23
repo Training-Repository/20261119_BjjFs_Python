@@ -35,6 +35,8 @@ Namespaces are one honking great idea -- let's do more of those!```
     * Map, Filter, Reduce
     * Decorators
     * Currying
+    * Generators - 'yield' keyword
+    * Iterators - iter(), next()
 
 ## Contact
 * Ramakant Debata
