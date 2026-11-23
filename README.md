@@ -37,6 +37,11 @@ Namespaces are one honking great idea -- let's do more of those!```
     * Currying
     * Generators - 'yield' keyword
     * Iterators - iter(), next()
+* RE
+    * Metacharacters
+    * Special sequences
+    * Extension Notations
+    * Assertions
 
 ## Contact
 * Ramakant Debata
