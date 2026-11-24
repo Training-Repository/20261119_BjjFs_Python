@@ -29,6 +29,10 @@ Namespaces are one honking great idea -- let's do more of those!```
 * [PEP-20: Zen of Python](https://peps.python.org/pep-0020/)
 * [Exception Hierarchy](https://docs.python.org/3/builtins/exceptions.html#exception-hierarchy)
 
+* Internet Resouces
+   * YouTube - Code with Harry - Quick intros to NumPy Pandas
+   * [YouTube - Corey Schafer - Beginner's series](https://youtu.be/YYXdXT2l-Gg?si=tLnsfMDyJbt-8vGw)
+   * Scikitlearn - Official documentation is good. Use that to start with.
 ## Reading list
 * Functions
     * Lambdas
